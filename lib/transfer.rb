@@ -22,7 +22,7 @@ class Transfer
     receiver.balance += amount
 
     #check that everyone's account is ok & this transaction hasn't happened before
-    if @@all.include?(self) || !sender.valid? || !receiver.valid?  then
+    if @@all.include?(self) || !sender.valid? || !receiver.valid? then
       self.status = "rejected"
       sender.balance += amount
       receiver.balance -= amount

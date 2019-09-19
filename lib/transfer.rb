@@ -18,4 +18,13 @@ class Transfer
     # binding.pry
     (self.valid? && @status != 'complete' && @sender.balance >= @amount) ? (@sender.deposit(-@amount); @receiver.deposit(@amount); @status = 'complete') : (@status = 'rejected';'Transaction rejected. Please check your account balance.')
   end
+
+  def reverse_transfer
+      if @status == 'complete'
+        @sender.deposit(@amount)
+        @receiver.deposit(-@amount)
+        @status = 'reversed'
+      end 
+
+  end 
 end # End transfer class

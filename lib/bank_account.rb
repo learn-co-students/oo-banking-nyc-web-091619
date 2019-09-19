@@ -13,6 +13,10 @@ class BankAccount
         @balance += amount
     end
 
+    def random_method
+        puts "changes!!!"
+    end 
+
     def display_balance
         "Your balance is $#{@balance}." #@name outputs Avi which is correct but @balance puts nil, @balance not a method of name
     end
